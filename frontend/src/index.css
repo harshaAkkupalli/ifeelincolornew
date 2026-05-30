@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #FDFCDC;
+    color: #073B4C;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+    :root {
+        --background: 50 78% 96%;
+        --foreground: 198 82% 16%;
+        --card: 0 0% 100%;
+        --card-foreground: 198 82% 16%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 198 82% 16%;
+        --primary: 193 83% 37%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 161 95% 43%;
+        --secondary-foreground: 198 82% 16%;
+        --muted: 50 78% 93%;
+        --muted-foreground: 215 35% 47%;
+        --accent: 43 100% 71%;
+        --accent-foreground: 198 82% 16%;
+        --destructive: 349 84% 61%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 198 82% 16% / 0.1;
+        --input: 198 82% 16% / 0.1;
+        --ring: 193 83% 37%;
+        --chart-1: 43 100% 71%;
+        --chart-2: 161 95% 43%;
+        --chart-3: 193 83% 37%;
+        --chart-4: 349 84% 61%;
+        --chart-5: 340 27% 53%;
+        --radius: 1rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}

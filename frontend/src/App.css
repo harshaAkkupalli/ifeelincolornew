@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+
+/* ─── IFEELINCOLOR Custom Styles ─── */
+
+.font-fredoka {
+  font-family: 'Fredoka', sans-serif;
+}
+
+.font-nunito {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ─── Dark Glassmorphism System ─── */
+
+.glass-dark {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+}
+
+.glass-dark-strong {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 24px;
+}
+
+/* Glass morphism utility (light) */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ─── Smooth Scrollbar ─── */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 209, 102, 0.4);
+  color: #073B4C;
+}
+
+/* ─── Animations ─── */
+
+@keyframes gentle-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+.animate-gentle-pulse {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 5px var(--neon-color, #FFD166), 0 0 15px var(--neon-color, rgba(255,209,102,0.3)); }
+  50% { box-shadow: 0 0 10px var(--neon-color, #FFD166), 0 0 30px var(--neon-color, rgba(255,209,102,0.5)); }
+}
+.animate-neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+}
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ─── Dark Slider Overrides ─── */
+
+[style*="background: rgb(13, 13, 17)"] [data-orientation="horizontal"] > span:first-child,
+[style*="background: #0D0D11"] [data-orientation="horizontal"] > span:first-child {
+  background: rgba(255, 255, 255, 0.08) !important;
+  height: 10px !important;
+  border-radius: 999px !important;
+}
+
+[style*="background: rgb(13, 13, 17)"] [data-orientation="horizontal"] > span:first-child > span,
+[style*="background: #0D0D11"] [data-orientation="horizontal"] > span:first-child > span {
+  border-radius: 999px !important;
+}
+
+[style*="background: rgb(13, 13, 17)"] [data-orientation="horizontal"] button,
+[style*="background: #0D0D11"] [data-orientation="horizontal"] button {
+  width: 24px !important;
+  height: 24px !important;
+  background: white !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ─── Dark Textarea Overrides ─── */
+
+[style*="background: rgb(13, 13, 17)"] textarea::placeholder,
+[style*="background: #0D0D11"] textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ─── Focus styles ─── */
+
+input:focus, textarea:focus, button:focus-visible {
+  outline: 2px solid #118AB2;
+  outline-offset: 2px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
