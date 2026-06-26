@@ -1,0 +1,18 @@
+{
+  "short_name": "IFEELINCOLOR",
+  "name": "IFEELINCOLOR — Emotional Wellness",
+  "description": "Feel your colors. Name your feelings. A sensory-friendly emotional wellness companion.",
+  "icons": [
+    {
+      "src": "https://customer-assets.emergentagent.com/job_ifeel-backend/artifacts/p3d8qihf_WhatsApp%20Image%202026-05-21%20at%2012.45.51.jpeg",
+      "sizes": "192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#FF4FBF",
+  "background_color": "#FDFBF4"
+}

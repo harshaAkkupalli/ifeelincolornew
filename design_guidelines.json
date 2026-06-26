@@ -1,0 +1,121 @@
+{
+  "theme": "LIGHT",
+  "archetype": "Swiss & High-Contrast (Adapted for Medical/Linear SaaS)",
+  "global_design_principles": [
+    "Clean, medical professional aesthetic.",
+    "Eliminate all dark navy, teal, 3D glassmorphism, and aurora motifs.",
+    "Rely on pure whites, subtle slate borders, and precise indigo accents.",
+    "Mobile-first constraint (max-w-md / ~480px container) scaling gracefully.",
+    "Stripe-like UI: sharp 1px borders, 0 1px 2px soft shadows, flat surfaces.",
+    "HIPAA-aware: calm, no anxiety-triggering reds unless strictly for SOS/Urgent alerts."
+  ],
+  "colors": {
+    "primary": { "class": "indigo-600", "hex": "#4F46E5", "usage": "Main actions, active states, active tab" },
+    "primary_hover": { "class": "indigo-700", "hex": "#4338CA", "usage": "Hover states for primary buttons" },
+    "background_app": { "class": "slate-50", "hex": "#F8FAFC", "usage": "Global app background behind the max-w-md container and inside it" },
+    "surface_card": { "class": "white", "hex": "#FFFFFF", "usage": "Cards, sheets, header, nav bar" },
+    "text_main": { "class": "slate-900", "hex": "#0F172A", "usage": "Headings, primary body text" },
+    "text_muted": { "class": "slate-500", "hex": "#64748B", "usage": "Secondary text, timestamps, subtitles" },
+    "border_subtle": { "class": "slate-200", "hex": "#E2E8F0", "usage": "Card borders, dividers, input borders" },
+    "border_focus": { "class": "indigo-500", "hex": "#6366F1", "usage": "Input focus states" },
+    "status": {
+      "urgent_high": { "class": "rose-600", "bg": "rose-50", "border": "rose-200", "usage": "Urgent patients, SOS alerts" },
+      "warning": { "class": "amber-600", "bg": "amber-50", "border": "amber-200", "usage": "Pending actions, warnings" },
+      "stable_good": { "class": "emerald-600", "bg": "emerald-50", "border": "emerald-200", "usage": "Subscribed, stable patients, completed" },
+      "info_ai": { "class": "blue-600", "bg": "blue-50", "border": "blue-200", "usage": "AI Coach elements, recommendations" }
+    }
+  },
+  "typography": {
+    "font_family": "Inter, sans-serif",
+    "hierarchy": {
+      "app_header": "text-lg font-semibold tracking-tight text-slate-900",
+      "h1_page": "text-xl sm:text-2xl font-semibold tracking-tight text-slate-900",
+      "h2_section": "text-sm font-semibold tracking-wide uppercase text-slate-500",
+      "h3_card": "text-base font-semibold text-slate-900",
+      "body_primary": "text-sm text-slate-700",
+      "body_secondary": "text-xs text-slate-500",
+      "data_value": "text-2xl font-bold tracking-tight text-slate-900"
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-md mx-auto min-h-screen bg-slate-50 relative shadow-xl overflow-hidden (for desktop frame)",
+    "page_padding": "px-4 pt-4 pb-24 (to account for bottom nav)",
+    "gap_standard": "gap-4",
+    "gap_dense": "gap-2"
+  },
+  "components": {
+    "card": "bg-white border border-slate-200 rounded-xl shadow-[0_1px_2px_rgba(16,24,40,0.06)] p-4",
+    "card_hover": "hover:shadow-md hover:border-slate-300 transition-all",
+    "button_primary": "w-full inline-flex items-center justify-center px-4 py-2.5 bg-indigo-600 text-white text-sm font-medium rounded-lg shadow-sm hover:bg-indigo-700 transition-colors focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+    "button_secondary": "w-full inline-flex items-center justify-center px-4 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-lg shadow-sm hover:bg-slate-50 transition-colors focus:ring-2 focus:ring-slate-500 focus:ring-offset-2",
+    "input": "w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all shadow-sm",
+    "badge_default": "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200",
+    "badge_urgent": "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200",
+    "badge_active": "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200",
+    "top_bar": "sticky top-0 z-50 h-14 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-4",
+    "bottom_nav": "fixed bottom-0 w-full max-w-md h-16 bg-white border-t border-slate-200 flex justify-around items-center px-2 z-50 pb-safe"
+  },
+  "pages": {
+    "ClinicianAppShell": {
+      "layout": "Wraps all views. Contains TopBar (Logo + Role Badge + Profile Pic/Signout) and BottomNav (Home, Patients, AI, Notes, Settings).",
+      "nav_active_state": "text-indigo-600",
+      "nav_inactive_state": "text-slate-400 hover:text-slate-600",
+      "header_replacement": "Replace all custom eyebrow text on individual pages with a unified top bar displaying contextual title."
+    },
+    "ClinicianHomeMobile": {
+      "hero": "No aggressive 'Command Center' text. Clean greeting like 'Good morning, Dr. Smith' or 'Dashboard'.",
+      "stats_grid": "grid grid-cols-2 gap-3. Each tile uses the standard card design. Values are large (data_value).",
+      "urgent_feed": "List of urgent patients below stats. Minimalist rows with red severity dots or subtle red badges."
+    },
+    "ClinicianPatientsMobile": {
+      "search_bar": "Sticky below top header. Uses standard input with leading Lucide search icon.",
+      "list_items": "Cards (p-3) containing patient name, severity chip, last seen date, and a ghost CTA 'View Roadmap' (text-indigo-600 text-sm font-medium)."
+    },
+    "ClinicianRecommendations": {
+      "anchor_reference": "Already clean. Ensure it uses pure white cards and slate-200 borders to match the new ecosystem."
+    },
+    "ClinicianAICoach": {
+      "layout": "Chat interface. White background for the entire page.",
+      "ai_bubble": "bg-slate-100 text-slate-900 p-3 rounded-2xl rounded-tl-sm border border-slate-200",
+      "user_bubble": "bg-indigo-600 text-white p-3 rounded-2xl rounded-tr-sm shadow-sm",
+      "input_area": "Fixed above bottom nav. border-t border-slate-200 bg-white p-3."
+    },
+    "ClinicianNotesMobile": {
+      "editor": "SOAP structure inside a single card or distinct section cards. Autosave indicated by a tiny green dot + 'Saved' text in the header."
+    },
+    "ClinicianAnalytics": {
+      "charts": "Recharts. Remove dark themes. Grid lines should be stroke-slate-100. Tooltips bg-white shadow-md border-slate-200."
+    },
+    "ClinicianSubscribe": {
+      "cards": "Pricing tiers. Free trial card prominent. Selected plan uses ring-2 ring-indigo-600 bg-indigo-50/50."
+    },
+    "ClinicianSettingsMobile": {
+      "list": "Grouped list items (iOS style) inside a white card with divide-y divide-slate-100."
+    },
+    "ClinicianNotifications": {
+      "feed": "Timeline format. Unread items have a faint bg-indigo-50 background."
+    },
+    "PatientRoadmap": {
+      "timeline": "Vertical line (border-l-2 border-slate-200). Nodes are white circles with slate borders. Current/Active node uses indigo-600."
+    },
+    "ClinicianPatientHistory": {
+      "layout": "Data dense but breathable. Use tabs (Shadcn style, no borders, just an underline or segmented control) to switch between Notes, Vitals, Assessments."
+    }
+  },
+  "animation_guidance": {
+    "library": "framer-motion",
+    "page_transitions": "initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}",
+    "tap_feedback": "whileTap={{ scale: 0.98 }} (for primary buttons and cards)",
+    "bottom_sheet": "initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ type: 'spring', damping: 25, stiffness: 200 }}"
+  },
+  "instructions_to_main_agent": [
+    "1. Replace all dark navy/teal classes with the new white/slate/indigo palette mapping provided above.",
+    "2. Remove all 3D glassmorphic elements (backdrop-blur with dark overlays) and decorative motifs (auroras).",
+    "3. Implement the new 'Stripe/Linear' card look globally: bg-white border border-slate-200 shadow-[0_1px_2px_rgba(16,24,40,0.06)].",
+    "4. Ensure the UI fits within a max-w-md mx-auto container for the mobile-first layout that scales gracefully.",
+    "5. ONLY use Lucide icons for iconography.",
+    "6. MUST preserve all existing data-testid attributes to prevent breaking automated tests. Apply data-testid to new interactive elements.",
+    "7. All interactive elements must have clear hover and focus states (focus:ring-2 focus:ring-indigo-500/20).",
+    "8. Write code for standard .js files (React + Tailwind), NOT .tsx."
+  ]
+}

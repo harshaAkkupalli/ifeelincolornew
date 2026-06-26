@@ -1,0 +1,13 @@
+{
+  "appId": "com.ifeelincolor.app",
+  "appName": "IFEELINCOLOR",
+  "webDir": "build",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": false
+  },
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#FDFBF4"
+  }
+}

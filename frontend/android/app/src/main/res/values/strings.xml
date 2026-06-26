@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">IFEELINCOLOR</string>
+    <string name="title_activity_main">IFEELINCOLOR</string>
+    <string name="package_name">com.ifeelincolor.app</string>
+    <string name="custom_url_scheme">com.ifeelincolor.app</string>
+</resources>

@@ -1,0 +1,153 @@
+/**
+ * Neuro-Inclusive (Low Stimulus) global theme overrides.
+ *
+ * Activates only when <html class="neuro-inclusive"> is set
+ * (managed by NeuroInclusiveContext). Designed to:
+ *  - Lower visual saturation to mitigate sensory overload
+ *  - Replace pure-bright accents with matte pastels
+ *  - Increase tap-target padding + focus glow
+ *  - Suppress noisy gradients and pulse animations
+ *
+ * Everything is opt-in via CSS variables + utility-class targeting so we
+ * don't have to fork existing JSX in 40 places.
+ */
+html.neuro-inclusive {
+  /* Matte dark canvas */
+  --ni-bg:           #0D0D11;
+  --ni-surface:      #16161D;
+  --ni-surface-2:    #1D1D26;
+  --ni-border:       rgba(255, 255, 255, 0.08);
+  --ni-ink:          #ECECF1;   /* Soft white, not pure */
+  --ni-ink-soft:     #B8B8C8;
+  --ni-ink-faint:    rgba(236, 236, 241, 0.55);
+
+  /* Matte pastel accent palette */
+  --ni-blue:   #8FA6C6;   /* Soft slate blue */
+  --ni-red:    #C58A82;   /* Muted terracotta */
+  --ni-green:  #A8BFA0;   /* Pastel sage */
+  --ni-yellow: #D6C18E;   /* Gentle mustard cream */
+  --ni-purple: #B3A9C6;   /* Pale lavender */
+  --ni-pink:   #D4A9BA;   /* Dusty rose */
+  --ni-orange: #C6A285;   /* Soft clay */
+  --ni-teal:   #92B8B0;   /* Sea glass */
+  --ni-cyan:   #9BB8C2;   /* Pale frost */
+  --ni-magenta:#BA9AB2;
+}
+
+/* ── Background overrides ── */
+html.neuro-inclusive body,
+html.neuro-inclusive .checkin-root,
+html.neuro-inclusive [data-stage="checkin"] {
+  background-color: var(--ni-bg) !important;
+  background-image: none !important;
+}
+
+/* Strip glare-causing animated gradients/glows inside the check-in flow */
+html.neuro-inclusive .checkin-flow [class*="animate-pulse"],
+html.neuro-inclusive .checkin-flow [class*="bg-gradient"],
+html.neuro-inclusive [data-low-stim-strip] {
+  background-image: none !important;
+  animation: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* ── Tap target + focus state ── */
+html.neuro-inclusive .ni-target {
+  min-height: 56px;
+  min-width: 56px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  background: var(--ni-surface);
+  border: 1px solid var(--ni-border);
+  transition: box-shadow 0.18s ease, transform 0.18s ease, background 0.18s ease;
+}
+html.neuro-inclusive .ni-target:focus-visible,
+html.neuro-inclusive .ni-target:hover {
+  outline: none;
+  background: var(--ni-surface-2);
+  box-shadow: 0 0 0 3px rgba(143, 166, 198, 0.35);   /* soft slate blue glow */
+}
+html.neuro-inclusive .ni-target[aria-pressed="true"],
+html.neuro-inclusive .ni-target[data-selected="true"] {
+  background: var(--ni-surface-2);
+  box-shadow: 0 0 0 3px rgba(168, 191, 160, 0.55);   /* sage selection glow */
+  border-color: var(--ni-green);
+}
+
+/* ── Color utility overrides (Tailwind classes used in check-in) ── */
+html.neuro-inclusive .text-pink-300,
+html.neuro-inclusive .text-pink-400,
+html.neuro-inclusive .text-pink-500 { color: var(--ni-pink) !important; }
+html.neuro-inclusive .text-red-500,
+html.neuro-inclusive .text-red-400,
+html.neuro-inclusive .text-rose-500 { color: var(--ni-red) !important; }
+html.neuro-inclusive .text-orange-500,
+html.neuro-inclusive .text-amber-500 { color: var(--ni-orange) !important; }
+html.neuro-inclusive .text-yellow-300,
+html.neuro-inclusive .text-yellow-400 { color: var(--ni-yellow) !important; }
+html.neuro-inclusive .text-emerald-300,
+html.neuro-inclusive .text-emerald-400,
+html.neuro-inclusive .text-green-400,
+html.neuro-inclusive .text-green-500 { color: var(--ni-green) !important; }
+html.neuro-inclusive .text-cyan-200,
+html.neuro-inclusive .text-cyan-300,
+html.neuro-inclusive .text-cyan-400 { color: var(--ni-cyan) !important; }
+html.neuro-inclusive .text-blue-300,
+html.neuro-inclusive .text-blue-400,
+html.neuro-inclusive .text-blue-500 { color: var(--ni-blue) !important; }
+html.neuro-inclusive .text-purple-300,
+html.neuro-inclusive .text-purple-400,
+html.neuro-inclusive .text-violet-400 { color: var(--ni-purple) !important; }
+
+html.neuro-inclusive .bg-pink-500,
+html.neuro-inclusive .bg-pink-400,
+html.neuro-inclusive .bg-rose-500 { background-color: var(--ni-pink) !important; }
+html.neuro-inclusive .bg-red-500,
+html.neuro-inclusive .bg-red-400 { background-color: var(--ni-red) !important; }
+html.neuro-inclusive .bg-orange-500,
+html.neuro-inclusive .bg-amber-500 { background-color: var(--ni-orange) !important; }
+html.neuro-inclusive .bg-yellow-400,
+html.neuro-inclusive .bg-yellow-300 { background-color: var(--ni-yellow) !important; }
+html.neuro-inclusive .bg-emerald-500,
+html.neuro-inclusive .bg-green-500,
+html.neuro-inclusive .bg-green-400 { background-color: var(--ni-green) !important; }
+html.neuro-inclusive .bg-blue-500,
+html.neuro-inclusive .bg-blue-400 { background-color: var(--ni-blue) !important; }
+html.neuro-inclusive .bg-purple-500,
+html.neuro-inclusive .bg-violet-500 { background-color: var(--ni-purple) !important; }
+
+/* Cards / surfaces */
+html.neuro-inclusive .glass-card,
+html.neuro-inclusive .checkin-flow .bg-white\/5,
+html.neuro-inclusive .checkin-flow .bg-white\/10,
+html.neuro-inclusive .checkin-flow .bg-white\/15 {
+  background-color: var(--ni-surface) !important;
+  backdrop-filter: blur(8px) !important;
+  border-color: var(--ni-border) !important;
+}
+
+/* Calm down the always-pulsing dot/marker animations on the body map */
+html.neuro-inclusive svg .pulse-dot,
+html.neuro-inclusive [data-low-stim-calm] {
+  animation: ni-soft-pulse 3.6s ease-in-out infinite !important;
+}
+@keyframes ni-soft-pulse {
+  0%, 100% { opacity: 0.7; }
+  50%      { opacity: 1.0; }
+}
+
+/* Reduce flashing radial gradients in the original Feelings Wheel */
+html.neuro-inclusive .feelings-wheel-radial { display: none !important; }
+html.neuro-inclusive .feelings-wheel-linear { display: flex !important; }
+
+/* Respect prefers-reduced-motion regardless of the toggle */
+@media (prefers-reduced-motion: reduce) {
+  html.neuro-inclusive *,
+  html.neuro-inclusive *::before,
+  html.neuro-inclusive *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
